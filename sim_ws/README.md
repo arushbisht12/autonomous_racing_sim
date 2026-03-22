@@ -22,7 +22,23 @@ The primary logic resides in the `sim_ws` directory:
 
 ---
 
-## 🚀 Quick Start (Replication)
+## Replication
 
+### Prerequisites
 * [Docker](https://docs.docker.com/get-docker/)
-* [Docker Compose](
+* [Docker Compose]
+
+### 1. Start the Environment
+From your host machine (where you cloned the repo):
+```bash
+cd autonomous_racing_sim
+docker-compose up
+# In every new terminal
+docker exec -it f1tenth_gym_ros-sim-1 /bin/bash
+# Launch sim
+source install/local_setup.bash
+ros2 launch f1tenth_gym_ros gym_bridge_launch.py
+# Launch package executable (ex: nice opp)
+source install/local_setup.bash
+ros2 run opponent_agent nice_opp
+
